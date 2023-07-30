@@ -6,12 +6,13 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 const PORT = 5001;
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/index.html");
+// });
 app.use(cors());
 
 const io = new Server(server, {
+  perMessageDeflate: false,
   cors: {
     origin: "http://localhost:3000",
   },
